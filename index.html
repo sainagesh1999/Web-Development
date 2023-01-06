@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Gurudatta Jewellers</title>
+        <!-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> -->
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- <link href="css/styles.css" rel="stylesheet" /> -->
+
+        <script type="text/javascript">
+            /*const userAction = async () => {
+              const response = await fetch('http://www.kjpl.in/index.php/C_booking/get_commodity_data.json');
+              const myJson = await response.json(); //extract JSON from the http response
+              // do something with myJson
+              console.log(myJson);
+            }*/
+            let url = 'http://www.kjpl.in/index.php/C_booking/get_commodity_data';
+
+            fetch(url)
+            .then(res => res.json())
+            .then((out) => {
+              console.log('Checkout this JSON! ', out);
+              goldpure = parseFloat(out['commoditydetails'][1]['sell_rate']);
+              mumgoldpure = parseFloat(out['commoditydetails'][3]['sell_rate']);
+              bangoldpure = parseFloat(out['commoditydetails'][2]['sell_rate']);
+              silverpure = parseFloat(out['commoditydetails'][4]['sell_rate']);
+              document.getElementById('gold999').innerHTML=(goldpure/10).toFixed(2);
+              document.getElementById('gold916').innerHTML=((goldpure/10)*0.916).toFixed(2);
+              document.getElementById('silver999').innerHTML=(silverpure/1000).toFixed(2);
+              document.getElementById('silver').innerHTML=((silverpure/1000)*1.04).toFixed(2);
+              document.getElementById('mumgold999').innerHTML=(mumgoldpure/10).toFixed(2);
+              document.getElementById('mumgold916').innerHTML=((mumgoldpure/10)*0.916).toFixed(2);
+              document.getElementById('bangold999').innerHTML=(bangoldpure/10).toFixed(2);
+              document.getElementById('bangold916').innerHTML=((bangoldpure/10)*0.916).toFixed(2);
+              var now = new Date();
+              document.getElementById('timelatest').innerHTML="latest updated - "+now.toLocaleString();
+            })
+            .catch(err => { throw err });
+        </script>
+
+
+
+    </head>
+    <style type="text/css">
+        body, html {
+          height: 100%;
+          margin: 0;
+        }
+        a {text-decoration: none;}
+        a:hover {text-decoration: underline;}
+        .bg {
+          /* The color used */
+          background-color: #4A0021;
+
+          /* Full height */
+          height: 100%; 
+
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+    </style>
+    <body id="page-top" >
+        <!-- Navigation-->
+        <!-- Header-->
+
+        <header class="masthead text-center text-white">
+            <div class="bg">
+            <img src="GurudattaJewellers.png" alt="Gurudatta Jewellers">
+            
+            <div class="masthead-content">
+                <div class="container px-5">
+                </div>
+            </div>
+            </div>
+        </header>
+        <!-- Content section 1-->
+        <section id="scroll">
+            <div class="bg">
+            <div class="container px-5 text-white">
+                <br>
+                <br>
+                <h1 class="text-center" style="color:#B28F49; font-family: 'quicksand' ;" >R A T E S</h1>
+                <!-- <h6 class="text-center" style="color:#B28F49; font-family: 'quicksand' ;" >(MJDMA)</h6> -->
+                <h6 id="timelatest" class="text-center" style="color:#B28F49; font-family: 'quicksand' ;" ></h6>
+                <div class="row gx-5 align-items-center">
+                    <div class="col-md-6 order-lg-1">
+                        <div class="p-5" style="width: 100%;">
+                            <h6  style="color:#B28F49; font-family: 'quicksand' ;" >CHENNAI</h6>
+                            <hr>
+                            <div class="row">
+                               <div class="col-md-7"><h4 style="width: 50%; height: 20px; float: left; color:#B28F49; font-family: 'quicksand' ;" >GOLD&nbsp;1Gm&nbsp;22CT&nbsp;(91.6)&emsp;-</h4></div>
+                               <div class="col-md-5" style="color:#B28F49;"><h3  id="gold916" style="width: 50%; height: 20px; color:#B28F49; font-family: 'quicksand' ;" ></h3></div>
+                            </div>
+                            <div class="row">
+                               <div class="col-md-7"><h4 style="width: 50%; height: 20px; float: left; color:darkgoldenrod; font-family: 'quicksand' ;" ></h4></div>
+                               <div class="col-md-5"><h4 style="width: 50%; height: 20px; color:darkgoldenrod; font-family: 'quicksand' ;" ></h4></div>
+                            </div>
+                            <div class="row">
+                               <div class="col-md-7"><h4 style="width: 50%; height: 20px; float: left; color:#B28F49; font-family: 'quicksand' ;" >GOLD&nbsp;1Gm&nbsp;24CT&nbsp;(99.9)&emsp;-</h4></div>
+                               <div class="col-md-5" style="color:#B28F49;"><h3 id="gold999" style="width: 50%; height: 20px; color:#B28F49; font-family: 'quicksand' ;" ></h3></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-lg-2">
+                        <div class="p-5" style="width: 100%;">
+                            <h6  style="color:silver; font-family: 'quicksand' ;" >CHENNAI</h6>
+                            <hr>
+                            <div class="row">
+                               <div class="col-md-6"><h4 style="width: 50%; height: 20px; float: left; color:silver; font-family: 'quicksand' ;" >SILVER&nbsp;1Gm&nbsp;&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;-</h4></div>
+                               <div class="col-md-6"><h3 id="silver" style="width: 50%; height: 20px; color:silver; font-family: 'quicksand' ;" ></h3></div>
+                            </div>
+                            <div class="row">
+                               <div class="col-md-6"><h4 style="width: 50%; height: 20px; float: left; color:silver; font-family: 'quicksand' ;" ></h4></div>
+                               <div class="col-md-6"><h4 style="width: 50%; height: 20px; color:silver; font-family: 'quicksand' ;" ></h4></div>
+                            </div>
+                            <div class="row">
+                               <div class="col-md-6"><h4 style="width: 50%; height: 20px; float: left; color:silver; font-family: 'quicksand' ;" >SILVER&nbsp;1Gm&nbsp;&nbsp;(99.9)&emsp;-</h4></div>
+                               <div class="col-md-6"><h3 id="silver999" style="width: 50%; height: 20px; color:silver; font-family: 'quicksand' ;" ></h3></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gx-5 align-items-center">
+                    <div class="col-md-6 order-lg-1">
+                        <div class="p-5" style="width: 100%;">
+                            <h6  style="color:#B28F49; font-family: 'quicksand' ;" >MUMBAI</h6>
+                            <hr>
+                            <div class="row">
+                               <div class="col-md-7"><h4 style="width: 50%; height: 20px; float: left; color:#B28F49; font-family: 'quicksand' ;" >GOLD&nbsp;1Gm&nbsp;22CT&nbsp;(91.6)&emsp;-</h4></div>
+                               <div class="col-md-5" style="color:#B28F49;"><h3  id="mumgold916" style="width: 50%; height: 20px; color:#B28F49; font-family: 'quicksand' ;" ></h3></div>
+                            </div>
+                            <div class="row">
+                               <div class="col-md-7"><h4 style="width: 50%; height: 20px; float: left; color:darkgoldenrod; font-family: 'quicksand' ;" ></h4></div>
+                               <div class="col-md-5"><h4 style="width: 50%; height: 20px; color:darkgoldenrod; font-family: 'quicksand' ;" ></h4></div>
+                            </div>
+                            <div class="row">
+                               <div class="col-md-7"><h4 style="width: 50%; height: 20px; float: left; color:#B28F49; font-family: 'quicksand' ;" >GOLD&nbsp;1Gm&nbsp;24CT&nbsp;(99.9)&emsp;-</h4></div>
+                               <div class="col-md-5" style="color:#B28F49;"><h3 id="mumgold999" style="width: 50%; height: 20px; color:#B28F49; font-family: 'quicksand' ;" ></h3></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-lg-2">
+                        <div class="p-5" style="width: 100%;">
+                            <h6  style="color:#B28F49; font-family: 'quicksand' ;" >BANGLORE</h6>
+                            <hr>
+                            <div class="row">
+                               <div class="col-md-7"><h4 style="width: 50%; height: 20px; float: left; color:#B28F49; font-family: 'quicksand' ;" >GOLD&nbsp;1Gm&nbsp;22CT&nbsp;(91.6)&emsp;-</h4></div>
+                               <div class="col-md-5" style="color:#B28F49;"><h3  id="bangold916" style="width: 50%; height: 20px; color:#B28F49; font-family: 'quicksand' ;" ></h3></div>
+                            </div>
+                            <div class="row">
+                               <div class="col-md-7"><h4 style="width: 50%; height: 20px; float: left; color:darkgoldenrod; font-family: 'quicksand' ;" ></h4></div>
+                               <div class="col-md-5"><h4 style="width: 50%; height: 20px; color:darkgoldenrod; font-family: 'quicksand' ;" ></h4></div>
+                            </div>
+                            <div class="row">
+                               <div class="col-md-7"><h4 style="width: 50%; height: 20px; float: left; color:#B28F49; font-family: 'quicksand' ;" >GOLD&nbsp;1Gm&nbsp;24CT&nbsp;(99.9)&emsp;-</h4></div>
+                               <div class="col-md-5" style="color:#B28F49;"><h3 id="bangold999" style="width: 50%; height: 20px; color:#B28F49; font-family: 'quicksand' ;" ></h3></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- Content section 2-->
+        <section>
+            <div class="bg">
+            <div class="container px-5 text-white">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-md-4">
+                        <div class="p-5"><img class="img-fluid" src="igi.png" alt="..." /></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-5"><img class="img-fluid" src="bis.png" alt="..." /><div class="text-center" style="color:red;"><h3>100% BIS Hallmarked</h3></div></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-5"><img class="img-fluid" src="925silver.png" alt="..." /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        <!-- Content section 3-->
+        <section>
+            <div class="bg">
+            <div class="container px-5 text-white">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><a href="https://goo.gl/maps/sAZUkwbu3eMRLnS79"><img class="img-fluid" src="gurudattamaps.png" alt="..." /></a></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <h1 class="text-center" style="color:#B28F49; font-family: 'quicksand' ;" >CONTACT / REACH US</h1>
+                        <br><br>
+                        <i class="fa fa-store" aria-hidden="true"></i>&nbsp;<span style="color:silver; font-family: 'quicksand' ;"><b>Mon - Sat (9:30 AM to 8:30 PM)</b></span><br>
+                        <span style="color:silver; font-family: 'quicksand' ;"><b>&emsp;&emsp;&emsp;Sun&emsp;&nbsp;(9:30 AM to 2:00 PM)</b></span><br><br>
+                        <i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;<a class="text-white" href="https://goo.gl/maps/sAZUkwbu3eMRLnS79" style="text-decoration:none;" style="color:silver; font-family: 'quicksand' ;" >#7-179, Brahmin Street, Chittoor - 517001, Andhra Pradesh, India.</a>
+                        <br><br>
+                        <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;<span style="color:silver; font-family: 'quicksand' ;"><a class="text-white" style="text-decoration:none;" href = "tel: 08572235088">+91-8572357731/8572235088</a></span>
+                        <br><br>
+                        <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;<span style="color:silver; font-family: 'quicksand' ;"><a class="text-white" style="text-decoration:none;" href = "mailto: gurudattajewellers@gmail.com">gurudattajewellers@gmail.com</a>
+
+                    </div>
+                    
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-black">
+            <div class="text-center">
+            <a style="color: #3b5998;" href="https://facebook.com/gurudattajewellers" role="button"
+              ><i class="fab fa-facebook-f fa-3x"></i
+            ></a>&emsp;
+
+            <!-- pinterest -->
+            <a style="color: #dd4b39;" href="https://pinterest.com/gurudattajewels" role="button"
+              ><i class="fab fa-pinterest fa-3x"></i
+            ></a>&emsp;
+
+            <!-- Instagram -->
+            <a style="color: #ac2bac;" href="https://instagram.com/gurudattajewellers" role="button"
+              ><i class="fab fa-instagram fa-3x"></i
+            ></a>&emsp;
+
+            <!-- Twitter -->
+            <a style="color: #075E54;" href="https://wa.me/9030383020" role="button"
+              ><i class="fab fa-whatsapp fa-3x"></i
+            ></a>
+        </div><br>
+            <div class="container px-5"><p class="m-0 text-center text-white small"> 2022 All Rights Reserved  © Gurudatta Jewellers.</p></div>
+        </footer>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <!-- <script src="js/scripts.js"></script> -->
+    </body>
+</html>
